@@ -1,0 +1,21 @@
+.notification-bar{
+    width: 95vw;
+    height: 9px;
+    display: flex;
+    margin: 0 auto ; 
+}
+
+/* 'clock' inside <Clock/> */
+.clock{
+    font-size: 10px;
+}
+
+.icons{
+    margin-left: auto;
+    display: flex;
+    gap: 4px;
+}
+
+.icon{
+    font-size: 10px;
+}
