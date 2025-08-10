@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 
 export default function Clock(){
-
     // State Variables 
     const [time, setTime] = useState(()=>{
         const date = new Date();
@@ -27,7 +26,7 @@ export default function Clock(){
     
     return(
         <>
-            <p>{time}</p>
+            <span>{time}</span>
         </>
     )
 }
