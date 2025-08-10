@@ -1,15 +1,33 @@
-export default function Clock(){
-    const date = new Date();
-    // let hour = date.getHours(); 
-    // hour = hour>12? hour-12 : hour ; 
-    let hour = date.getHours() > 12 ? date.getHours() - 12 : date.getHours() ;  
-    let min = date.getMinutes(); 
-    let sec = date.getSeconds(); 
+import {useState, useEffect} from "react";
 
-    let timeInString = `${hour} : ${min} : ${sec}`; 
+export default function Clock(){
+
+    // State Variables 
+    const [time, setTime] = useState(()=>{
+        const date = new Date();
+        let hour = date.getHours() > 12 ? date.getHours() - 12 : date.getHours() ;  
+        let min = date.getMinutes(); 
+        let sec = date.getSeconds(); 
+        return `${hour} : ${min} : ${sec}`;
+    });
+
+    useEffect(()=>{
+        // fetch time every second
+        const timer = setInterval(()=>{
+            const date = new Date();
+            let hour = date.getHours() > 12 ? date.getHours() - 12 : date.getHours() ;  
+            let min = date.getMinutes(); 
+            let sec = date.getSeconds(); 
+            setTime(`${hour} : ${min} : ${sec}`);
+        }, 1000);
+        
+        // clean up unmount 
+        return () => clearInterval(timer); 
+    },[]);
+    
     return(
         <>
-            <p> {timeInString} </p>
+            <p>{time}</p>
         </>
     )
 }
