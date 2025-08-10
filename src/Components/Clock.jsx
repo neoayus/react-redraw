@@ -26,7 +26,7 @@ export default function Clock(){
     
     return(
         <>
-            <span class="clock">{time}</span>
+            <span className="clock">{time}</span>
         </>
     )
 }
